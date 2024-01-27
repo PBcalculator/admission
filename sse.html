@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title>O Level Points Calculation</title>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="global.css" />
+
+</head>
+<body>
+<div id="outercontainer" style="margin-top: 25px;">
+<div id="logocontainer">
+<div id="logo"><img src="images/pblogo1.png" height="95" width="172"></div>
+<div id="titlepb">
+<h3>Admission to Politeknik Brunei</h3>
+<h4>Academic Session 2023/2024</h4>
+<h4>Calculation of Grade Points</h4>
+</div>
+</div><br/>
+<form id="gpcal1"> 
+<!-- Initial request: display in desktop only
+Next version will be responsive - MKZ/SICT @2020 -->
+	<table class="page" cellspacing="1" cellpadding="0" border="0" style="padding:10px">
+	<tbody>
+	<tr>
+	
+		<td>
+			<table id="point-calculator" summary="Search results" style="width:670px">
+			<thead>
+				<tr>
+					<th id="subject" style="width:600px">Programme Area (Science and Engineering)</th>
+					<th style="text-align: right;"><a href="index.html"><img class="ico" src="images/home1.png"></a></th>
+
+			</thead>
+			<tbody>
+				<td colspan="2" headers="subject" class="subject-sel"  style="border-right:1px solid #ccc;height: 50px;">
+					<img src="images/sse.png" width="100%">
+				</td>
+				</tr>
+				<tr>
+					<th style="width:600px"><a href="sse-eng.html">Eligibility Calculation</a></th>
+					<td colspan="2" headers="subject" class="subject-sel"  style="border-right:1px solid #ccc;">
+						<select name="level5" onchange="javascript:location.href = this.value;" style="width:200px;">
+							<option value="#">Select</option>
+							<option value="sse-arc-idn.html">Architecture and Interior Design</option>
+							<option value="sse-eng.html">Engineering courses</option>
+						</select>
+						</td>
+				</tr>
+				
+				</tbody>
+				
+			</table>
+			
+		</td>
+	</tr>
+</tbody></table>	
+<br>	
+courses: <a href="sict.html">ICT</a> | <a href="sbs.html">Business</a> | <a href="sse.html">Science &amp; Engineering</a> | <a href="shs.html">Health Science</a>	
+</form>
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title>SHS Calculation</title>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="global.css" />
+<script src="js/common.js"></script>
+<script src="js/shs.js"></script>
+
+
+</head>
+<body onload="toggelDisable(1)">
+<div id="logocontainer">
+<div id="logo"><img src="images/pblogo1.png" height="95" width="172"></div>
+<div id="titlepb">
+<h3>Admission to Politeknik Brunei</h3>
+<h4>Academic Session 2023/2024</h4>
+<h4>Calculation of Grade Points</h4>
+</div>
+</div><br/>
+<div style="display: inline-flex;">
+<div id="programme"><strong style="font-size: 10pt;">School of Health Sciences </strong></div><div class="hico"><a href="index.html"><img class="ico" src="images/home2.png"></a></div></div>
+<form id="gpcal1">
+<!-- Initial request: display in desktop onlyß
+Next version will be responsive - MKZ/SICT @2020 SNA/SICT @2024-->
+	<table class="page" cellspacing="1" cellpadding="0">
+	<tbody><tr>
+	
+		<td>
+			<table id="point-calculator" summary="Search results" >
+			<thead>
+				<tr>
+					<th id="subject" colspan="2">Subject</th>
+					<th id="grade">Grade</th>
+					<th id="points" class="corner" style="width: 150px">Points</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="4" class="subject-sel grade-sel points-input " style="line-height:160%;">
+						<span class="bolden" style="color:#42099A">YOU MAY COMBINE ANY GRADES FROM ANY RELEVANT SUBJECTS OBTAINED IN DIFFERENT YEARS.</span>
+						<br>
+						<span style="color:red; font-size:0.9em; text-transform: uppercase;"><strong>Please check programme entry requirements for subject relevance before applying.</strong></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="subject-sel grade-sel points-input " style="line-height:80%;">
+						<p style="line-height:1.25em;"><strong>Input the grades for the COMPULSORY subjects.</strong></p><p  style="color:red;display:none;font-size:0.9em;" class="bolden" id="alert">IGCSE English (as a Second Language) Grade A1-B4 only</p>
+					</td>
+				</tr>
+				<tr>
+					<td headers="subject" class="subject-sel ">
+						<span id="nws-ist-c1">English Language or its equivalent</span>
+					</td>
+
+					<td headers="subject" class="subject-sel" style="border-left: solid 1px #fff">
+						<input type="radio" name="level" id="olevel" onclick="toggleGrade(3, this.value)"><label for="olevel">O level</label>
+						<input type="radio" name="level" id="igcse" onclick="toggleGrade(4, this.value)"><label for="igcse">IGCSE</label>
+						<input type="radio" name="level" id="ielts" onclick="toggleGrade(5, this.value)"><label for="ielts">IELTS</label>
+					</td>
+
+					<td headers="grade" class="grade-sel ">
+						<select name="g1" id="g1-1" onchange="getPoint(1,this.value)">
+							<option value="0">Select</option>
+							<option value="1">A1</option>
+							<option value="2">A2</option>
+							<option value="3">B3</option>
+							<option value="4">B4</option>
+							<option value="5">C5</option>
+							<option value="6">C6</option>
+						</select>
+						<select name="g1" id="g1-2" onchange="getPoint(11,this.value)">
+							<option value="0">Select</option>
+							<option value="1">A*</option>
+							<option value="2">A</option>
+							<option value="3">B3</option>
+							<option value="4">B4</option>
+							<option value="5">C5</option>
+							<option value="6">C6</option>
+						</select>	
+
+						<select name="g1" id="g1-3" onchange="getPoint(12,this.value)"><option value="0">Select IELTS band</option>
+							<option value="1">9.0</option>
+							<option value="1">8.5</option>
+							<option value="2">8</option>
+							<option value="3">7.5</option>
+							<option value="4">7</option>
+							<option value="5">6.5</option>
+							<option value="6">6.0</option>
+						</select>		
+					</td>
+
+					<td headers="points" class="points-input">
+						<input id="p1" value="0" type="text" class="gp" readonly="">				
+					</td>
+				</tr>
+
+				<tr>
+					<td headers="subject" class="subject-sel">
+						<select id="maths" onchange="disabledsubs(this.value)">
+							<option value="0">Select</option>
+							<option value="Mathematics">Mathematics D</option>
+							<option value="AddMaths">Additional Mathematics</option>
+						</select>
+					</td>
+					<td headers="subject" class="subject-sel" style="border-left: solid 1px #fff">
+		<input type="radio" name="level1" id="olevel1" onclick="toggleGrade(1, this.value)"><label for="olevel1">Olevel</label>
+		<input type="radio" name="level1" id="igcse1" onclick="toggleGrade(2, this.value)"><label for="igcse1">IGCSE</label>
+	</td>
+	
+	
+					<td headers="grade" class="grade-sel">
+	<select name="g2"  id="g2-1" onchange="getPoint(2,this.value)"><option value="0">Select</option><option value="1">A1</option><option value="2">A2</option><option value="3">B3</option><option value="4">B4</option><option value="5">C5</option><option value="6">C6</option></select>
+	<select name="g2" id="g2-2" onchange="getPoint(2,this.value)">
+	<option value="0">Select</option>
+	<option value="1">A*</option>
+	<option value="2">A</option>
+	<option value="3">75-79</option>
+	<option value="4">70-74</option>
+	<option value="5">65-69</option>
+	<option value="6">60-64</option>
+	</select>								</td>
+	
+					<td headers="points" class="points-input">
+							<input id="p2" value="0" type="text" class="gp" readonly="">				
+					</td>
+				</tr>
+				<!-- <tr>
+				<td colspan="4" class="subject-sel grade-sel points-input " style="line-height:80%;">
+				<span><strong>ONE MOST relevant subject</strong></span>
+				</td>
+
+				</tr> -->
+
+				
+				<tr>
+					<td colspan="4" class="subject-sel grade-sel points-input " style="line-height:80%;"><strong>Input the grades of MOST relevant subjects from the dropdown list.</strong></td>
+
+				</tr>
+				<tr>
+					<td headers="subject" class="subject-sel" colspan="2">
+						<select id="r1" class="subjeks"  onchange="disabledsubsr(1,this.value)">
+							<option value="0">Select</option>
+							<option value="Bio">Biology</option>
+							<option value="Chem">Chemistry</option>
+							<option value="CombSci">Combined Science</option>
+							<option value="Phy">Physics</option>
+						</select>				
+					</td>
+
+
+
+					<td headers="grade" class="grade-sel">
+						<select name="g4" id="g4" onchange="getPoint(4,this.value)" class="grad">
+							<option value="0">Select</option>
+							<option value="1">A1</option>
+							<option value="2">A2</option>
+							<option value="3">B3</option>
+							<option value="4">B4</option>
+							<option value="5">C5</option>
+							<option value="6">C6</option>
+						</select>
+					</td>
+
+					<td headers="points" class="points-input">
+						<input id="p4" value="0" type="text" class="gp" readonly="">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="subject-sel grade-sel points-input " style="line-height:80%;"><strong>Input the grades of any TWO relevant subjects from the dropdown list.</strong></td>
+
+				</tr>
+				<tr>
+					<td headers="subject" class="subject-sel" colspan="2">
+						<select id="r21" class="subjeks"  onchange="disabledsubsr(2,this.value)">
+							<option value="0">Select</option>
+							<option value="Addmaths">Additional Mathematics</option>
+							<option value="Bio">Biology</option>
+							<option value="Chem">Chemistry</option>
+							<option value="Comm">Commerce</option>
+							<option value="CommStu">Commercial Studies</option>
+							<option value="CompStu">Computer Studies</option>
+							<option value="CompSci">Computer Science</option>
+							<option value="DnT">Design and Technology</option>
+							<option value="Eco">Economics</option>
+							<option value="EngLit">English Literature</option>
+							<option value="FaN">Food and Nutrition</option>
+							<option value="Geo">Geography</option>
+							<option value="Hist">History</option>
+							<option value="ICT">ICT</option>
+							<option value="POA">Principle of Accounts</option>
+							<option value="Socio">Sociology</option>
+							<option value="Stat">Statistic</option>
+							<option value="TaT">Travel and Tourism</option>
+							<option value="Phy">Physics</option>
+						</select>				
+					</td>
+
+
+
+					<td headers="grade" class="grade-sel ">
+						<select name="g5" id="g5" onchange="getPoint(5,this.value)" class="grad">
+							<option value="0">Select</option>
+							<option value="1">A1</option>
+							<option value="2">A2</option>
+							<option value="3">B3</option>
+							<option value="4">B4</option>
+							<option value="5">C5</option>
+							<option value="6">C6</option>
+						</select>				
+					</td>
+
+					<td headers="points" class="points-input">
+						<input id="p5" value="0" type="text" class="gp" readonly="">				
+					</td>
+				</tr>
+				<tr>
+					<td headers="subject" class="subject-sel" colspan="2">
+						<select id="r22" class="subjeks" onchange="disabledsubsr(3,this.value)">
+							<option value="0">Select</option>
+							<option value="Addmaths">Additional Mathematics</option>
+							<option value="Bio">Biology</option>
+							<option value="Chem">Chemistry</option>
+							<option value="Comm">Commerce</option>
+							<option value="CommStu">Commercial Studies</option>
+							<option value="CompStu">Computer Studies</option>
+							<option value="CompSci">Computer Science</option>
+							<option value="DnT">Design and Technology</option>
+							<option value="Eco">Economics</option>
+							<option value="EngLit">English Literature</option>
+							<option value="FaN">Food and Nutrition</option>
+							<option value="Geo">Geography</option>
+							<option value="Hist">History</option>
+							<option value="ICT">ICT</option>
+							<option value="POA">Principle of Accounts</option>
+							<option value="Socio">Sociology</option>
+							<option value="Stat">Statistic</option>
+							<option value="TaT">Travel and Tourism</option>
+							<option value="Phy">Physics</option>
+					</select>				
+					</td>
+
+					<td headers="grade" class="grade-sel" >
+						<select name="g6" id="g6" onchange="getPoint(6,this.value)" class="grad">
+							<option value="0">Select</option>
+							<option value="1">A1</option>
+							<option value="2">A2</option>
+							<option value="3">B3</option>
+							<option value="4">B4</option>
+							<option value="5">C5</option>
+							<option value="6">C6</option>
+						</select>				
+					</td>
+
+					<td headers="points" class="points-input">
+						<input id="p6" value="0" type="text" class="gp" readonly="">				
+					</td>
+				</tr>				
+				<tr>
+					<td id="LCVP" class="right" colspan="3"><strong> <a href="#" onclick="totalUp(2);" id="">Calculate Points</a></strong></td> <!--totalUp(1)-->
+
+					<td headers="points" class="points-input">
+						<input id="totalpoints" value="" type="text" readonly=""><br><span id="status"></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="subject-sel grade-sel points-input " style="line-height:80%;"><strong>Other Requirements</strong></td>
+
+				</tr>
+
+				<tr>
+					<td id="LCVP" class="right" colspan="3">Gender</td>
+					<td headers="gender">
+						<select id="gender">
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td id="LCVP" class="right" colspan="3">Height (in centimeters):</td>
+					<td headers="Hheight" class="points-input">
+						<input id="height" type="number" step="0.1" value="155" class="or"><span id="otherh"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td id="LCVP" class="right" colspan="3">Weight (in kg):</td>
+					<td headers="Hweight" class="points-input">
+						<input id="weight" type="number" step="0.1" value="45" class="or"><span id="weight"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td id="LCVP" class="right" colspan="3">BMI:</td>
+					<td headers="height" class="points-input">
+						<span id="BMI"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td id="LCVP" class="right" colspan="4"><input type="button" id="checkEligibility" value="Check Eligibility"></td>
+				</tr>
+
+				<tr>
+					<table id="resultsTable">
+						<thead>
+						<tr>
+							<th>Course</th>
+							<th>Eligibility</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Diploma in Health Sciences (Midwifery) <br><span style="color:red; font-size:0.9em; "><strong>FEMALE applicant only</strong></span></td>
+							<td id="shsResult"></td>
+						</tr>
+						<tr>
+							<td>Diploma in Health Sciences (Nursing)</td>
+							<td id="nurseResult"></td>
+						</tr>
+						<tr>
+							<td>Diploma in Health Sciences (Paramedic) <br><span style="color:red; font-size:0.9em;"><strong>Height:>155cm and BMI: 18-25</strong></span></td>
+							<td id="paraResult"></td>
+						</tr>
+						<tr>
+							<td>Diploma in Health Sciences (CardioVascular Technology)</td>
+							<td id="cardioResult"></td>
+						</tr>
+						<tr>
+							<td>Diploma in Health Sciences (Public Health)</td>
+							<td id="publicResult"></td>
+						</tr>
+						</tbody>
+					</table>
+					<br>
+					<span style="color:purple; font-size:0.9em; text-transform: uppercase;"><strong>Applicant must note that fulfilling the specific entry requirements does not guarantee entry into <br>politeknik brunei's programmes as admission to all programme are competitive.</strong></span>
+					<script src="js/shs-calc.js"></script>
+
+				</tr>
+
+					<!-- <tr>
+						<td id="LCVP" class="right" colspan="3"><strong>Eligibility status</strong></td>
+
+						<td headers="points" class="points-input"><span id="status">Not Eligible</span></td>
+					</tr> -->
+		
+				<tr>
+					<td id="LCVP" class="right" colspan="4"><input type="button" onclick="window.location.href='shs-calc.html'" value="Start Over"></td>
+
+				</tr>
+
+			</tbody>
+		</table>
+		</td>
+		</tr>
+		</tbody></table> 
+		
+		
+		
+		
+		
+		<br>	
+courses: <a href="sict.html">ICT</a> | <a href="sbs.html">Business</a> | <a href="sse.html">Science &amp; Engineering</a> | <a href="shs.html">Health Science</a>	
+
+</form>
+</body>
+</html>
